@@ -60,8 +60,8 @@ class Buttons {
       onPressed: loading ? null : onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: tempColor,
-        // shape: Component.shape(radius: 100),
-        // padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        
+        
       ),
       child: loading
           ? const SizedBox(
@@ -133,7 +133,7 @@ class Buttons {
           TextComponent.textTitle(
             title,
             colors: textColor,
-            // type: TextBodyType.s3,
+            
           ),
         ],
       ),
@@ -312,7 +312,7 @@ class Buttons {
       label: TextComponent.textTitle(
         title,
         colors: ColorPalette.white,
-        // type: TextBodyType.s3,
+        
       ),
     );
   }

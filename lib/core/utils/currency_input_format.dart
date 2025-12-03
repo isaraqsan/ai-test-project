@@ -5,11 +5,11 @@ class CurrencyTextInputFormatter extends TextInputFormatter {
   TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     if (newValue.text.isEmpty) return newValue;
     
-    // Hanya biarkan angka
+    
     final String cleanText = newValue.text.replaceAll(RegExp(r'[^\d]'), '');
     if (cleanText.isEmpty) return TextEditingValue.empty;
     
-    // Format ke mata uang
+    
     final numValue = int.parse(cleanText);
     final formattedText = _formatCurrency(numValue);
     

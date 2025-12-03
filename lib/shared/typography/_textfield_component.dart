@@ -50,7 +50,7 @@ class TextfieldComponent {
           : null,
       counterText: '',
       hintText: hint,
-      // contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      
       hintStyle: const TextStyle(
         fontSize: 12.0,
         color: ColorPalette.textGrey,

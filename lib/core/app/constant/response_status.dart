@@ -1,5 +1,5 @@
 enum ResponseStatus {
-  // * From Api
+  
   success('00'),
   failed('1000'),
   unauthorized('04'),

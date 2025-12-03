@@ -32,11 +32,11 @@ class _ChipButtonHorizontalState extends State<ChipButtonHorizontal> {
   void initState() {
     if (widget.initialValue != null) {
       _selectedContent = widget.initialValue;
-      // _scrollController.animateTo(
-      //   widget.listContent.indexOf(_selectedContent!).toDouble(),
-      //   duration: const Duration(milliseconds: 500),
-      //   curve: Curves.ease,
-      // );
+      
+      
+      
+      
+      
     }
     super.initState();
   }
@@ -73,7 +73,7 @@ class _ChipButtonHorizontalState extends State<ChipButtonHorizontal> {
             child: TextComponent.textTitle(
               widget.listContent[index].name,
               colors: _selectedContent?.id == widget.listContent[index].id ? ColorPalette.white2 : ColorPalette.black2,
-              // type: TextTitleType.l1,
+              
             ),
           ),
         ),

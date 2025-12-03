@@ -1,6 +1,6 @@
 class AppConfig {
   // * Name
-  static const String aplicationName = 'GIBAS';
+  static const String aplicationName = 'AI TEST';
 
   // * Path
   static const alphaDir = 'apos';

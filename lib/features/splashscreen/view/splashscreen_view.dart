@@ -1,5 +1,4 @@
 import 'package:gibas/core/app/color_palette.dart';
-import 'package:gibas/core/app/constant/icons_path.dart';
 import 'package:gibas/features/splashscreen/controller/splashscreen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,20 +15,26 @@ class SplashscreenView extends StatelessWidget {
       init: SplashscreenController(),
       builder: (controller) {
         return Scaffold(
-          backgroundColor: ColorPalette.background,
+          backgroundColor: ColorPalette.greenTheme,
           body: Stack(
             alignment: Alignment.center,
             children: [
+              
               Center(
-                child: Image.asset(
-                  IconsPath.logoTransparent,
-                  height: SizeConfig.blockSizeHorizontal * 70,
+                child: Icon(
+                  Icons.auto_awesome_outlined,
+                  size: SizeConfig.blockSizeHorizontal * 30,
+                  color: ColorPalette.primary,
                 ),
               ),
+              
               Positioned(
                 bottom: 10.0,
-                child: TextComponent.textBody(controller.version, colors: ColorPalette.white),
-              )
+                child: TextComponent.textBody(
+                  controller.version,
+                  colors: ColorPalette.white,
+                ),
+              ),
             ],
           ),
         );

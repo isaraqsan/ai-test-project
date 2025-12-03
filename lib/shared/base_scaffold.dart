@@ -32,13 +32,21 @@ class BaseScaffold extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: title != null ? Component.appBarDefault(title!, bottom: bootom) : null,
+        appBar: title != null
+            ? Component.appBarDefault(title!, bottom: bootom)
+            : null,
         backgroundColor: ColorPalette.background,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        floatingActionButton: onTapFab != null ? Component.floatingActionButton(onTap: onTapFab!) : null,
-        body: Padding(
-          padding: usePaddingHorizontal ? Dimens.marginContentHorizontal : EdgeInsets.zero,
-          child: _getResponsiveContent(context),
+        floatingActionButton: onTapFab != null
+            ? Component.floatingActionButton(onTap: onTapFab!)
+            : null,
+        body: SafeArea(
+          child: Padding(
+            padding: usePaddingHorizontal
+                ? Dimens.marginContentHorizontal
+                : EdgeInsets.zero,
+            child: _getResponsiveContent(context),
+          ),
         ),
       ),
     );
@@ -47,7 +55,8 @@ class BaseScaffold extends StatelessWidget {
   Widget _getResponsiveContent(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     Log.v('Width => $width', tag: runtimeType.toString());
-    if (width <= Responsive.smallMobile.maxWidth || width < Responsive.mobile.maxWidth) {
+    if (width <= Responsive.smallMobile.maxWidth ||
+        width < Responsive.mobile.maxWidth) {
       return contentMobile;
     } else if (width <= Responsive.tablet.maxWidth) {
       return contentTablet ?? contentMobile;

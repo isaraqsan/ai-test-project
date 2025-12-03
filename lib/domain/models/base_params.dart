@@ -82,9 +82,9 @@ class BaseParams extends ModelApi {
   }
 
   BaseParams.withDate() {
-    // siteId = AuthController.instance.authEntity.user?.siteId;
-    // sortDir = AppConfig.sortByDescending;
-    // startTime = DataUsecase.dateYYMMDD(DateTime.now().subtract(const Duration(days: 180)).toString());
-    // endTime = DataUsecase.dateYYMMDD(DateTime.now().subtract(const Duration(days: -1)).toString());
+    
+    
+    
+    
   }
 }

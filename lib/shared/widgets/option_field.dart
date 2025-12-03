@@ -47,7 +47,7 @@ class _OptionFieldState<T extends BaseModel> extends State<OptionField<T>> {
     ).then((value) {
       if (value != null) {
         controller.text = value.name;
-        widget.onChanged.call(value as T); // <-- Safe cast
+        widget.onChanged.call(value as T); 
       }
     });
   }

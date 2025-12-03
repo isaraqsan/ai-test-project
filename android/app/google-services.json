@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "356431257956",
+    "project_id": "ai-test-project-b4416",
+    "storage_bucket": "ai-test-project-b4416.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356431257956:android:06f713ede4fb048a7cda71",
+        "android_client_info": {
+          "package_name": "id.act.gibas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDNUEbc9KiT-IeVs9IKwVgHA4Qgtc1Bcw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

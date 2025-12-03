@@ -65,7 +65,8 @@ class DioService extends getx.GetxService {
   Future<bool> checkConnectivity() async {
     bool connect = false;
     try {
-      final result = await InternetAddress.lookup('google.com').timeout(AppConfig.timeRequestApi);
+      final result = await InternetAddress.lookup('google.com')
+          .timeout(AppConfig.timeRequestApi);
       if (result.isNotEmpty && result.first.rawAddress.isNotEmpty) {
         connect = true;
       }
@@ -75,7 +76,8 @@ class DioService extends getx.GetxService {
     return connect;
   }
 
-  Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  Future<void> onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     if (_isLoading) OverlayController.to.showLoading();
     return handler.next(options);
   }
@@ -89,11 +91,14 @@ class DioService extends getx.GetxService {
       if (data == null) {
         Log.e('Response data null', tag: runtimeType.toString());
         ErrorHandling.errorApi(
-          DataResult.failed(messageValue: 'Terjadi kesalahan, data tidak ditemukan dari server'),
+          DataResult.failed(
+              messageValue:
+                  'Terjadi kesalahan, data tidak ditemukan dari server'),
         );
         if (data is! Map) {
           ErrorHandling.errorApi(
-            DataResult.failed(messageValue: 'Format data dari server tidak sesuai'),
+            DataResult.failed(
+                messageValue: 'Format data dari server tidak sesuai'),
           );
           response?.data = ErrorHandling.defaultError();
           return handler.next(response);
@@ -107,14 +112,17 @@ class DioService extends getx.GetxService {
       Log.e(stack.toString(), tag: runtimeType.toString());
 
       ErrorHandling.errorApi(
-        DataResult.failed(messageValue: 'Terjadi kesalahan saat memproses respon dari server'),
+        DataResult.failed(
+            messageValue:
+                'Terjadi kesalahan saat memproses respon dari server'),
       );
     }
 
     return handler.next(response);
   }
 
-  Future<void> onError(DioException dioError, ErrorInterceptorHandler handler) async {
+  Future<void> onError(
+      DioException dioError, ErrorInterceptorHandler handler) async {
     OverlayController.to.hide();
 
     Log.w('Error => ${dioError.message}', tag: runtimeType.toString());
@@ -131,12 +139,14 @@ class DioService extends getx.GetxService {
         Utils.toast('Tidak dapat terhubung', snackType: SnackType.error);
         break;
       case DioExceptionType.badResponse:
-        Log.e('Error Bad Response => ${dioError.response!.data}', tag: runtimeType.toString());
+        Log.e('Error Bad Response => ${dioError.response!.data}',
+            tag: runtimeType.toString());
         late DataResult dataResult;
         if (dioError.response!.data is Map) {
           dataResult = DataResult.fromJson(dioError.response!.data);
         } else if (dioError.response!.data is String) {
-          dataResult = DataResult.fromJson(jsonDecode(dioError.response!.data.toString()));
+          dataResult = DataResult.fromJson(
+              jsonDecode(dioError.response!.data.toString()));
         }
         ErrorHandling.errorApi(dataResult);
         break;
@@ -177,7 +187,8 @@ class DioService extends getx.GetxService {
     T Function(Map<String, dynamic>)? fromJsonT,
   }) async {
     _isLoading = loading;
-    final response = await _dio.delete(url, data: body).onError(onErrorHandling);
+    final response =
+        await _dio.delete(url, data: body).onError(onErrorHandling);
     return DataResult<T>.fromJson(response.data, fromJsonT: fromJsonT);
   }
 
@@ -189,24 +200,11 @@ class DioService extends getx.GetxService {
     bool loading = false,
   }) async {
     _isLoading = loading;
-    final response = await _dio.get(url, data: body, queryParameters: param).onError(onErrorHandling);
+    final response = await _dio
+        .get(url, data: body, queryParameters: param)
+        .onError(onErrorHandling);
     return DataResult<T>.fromJson(response.data, fromJsonT: fromJsonT);
   }
-
-  // Future<DataResult<T>> getArea<T>({
-  //   required String url,
-  //   Map<String, dynamic>? body,
-  //   Map<String, dynamic>? param,
-  //   Function(Map<String, dynamic> data)? fromJsonT,
-  //   bool loading = false,
-  // }) async {
-  //   final EnvService envService = EnvService();
-  //   _isLoading = loading;
-  //   _dio.options.baseUrl = envService.baseUrlCms;
-  //   final response = await _dio.get(url, data: body, queryParameters: param).onError(onErrorHandling);
-  //   _dio.options.baseUrl = envService.baseURL();
-  //   return DataResult<T>.fromJson(response.data, fromJsonT: fromJsonT);
-  // }
 
   Future<DataResult<T>> postFormData<T>({
     required String url,
@@ -238,12 +236,14 @@ class DioService extends getx.GetxService {
     bool showMessage = true,
   }) async {
     final Directory appDocDirectory = await getApplicationDocumentsDirectory();
-    final String filePath = '${appDocDirectory.path}/${url.split('/').last}_${DateTime.now().millisecondsSinceEpoch}.$ext';
+    final String filePath =
+        '${appDocDirectory.path}/${url.split('/').last}_${DateTime.now().millisecondsSinceEpoch}.$ext';
     await _dio.download(url, filePath, data: body, queryParameters: param);
     return filePath;
   }
 
-  Future<Response<dynamic>> onErrorHandling(Object error, StackTrace stackTrace) async {
+  Future<Response<dynamic>> onErrorHandling(
+      Object error, StackTrace stackTrace) async {
     if (error is DioException) {
       return error.response!;
     } else {
@@ -264,7 +264,8 @@ class DioService extends getx.GetxService {
     dioOsm.interceptors.add(
       PrettyDioLogger(),
     );
-    final response = await dioOsm.get('/reverse?format=json&lat=$lat&lon=$lon&zoom=18');
+    final response =
+        await dioOsm.get('/reverse?format=json&lat=$lat&lon=$lon&zoom=18');
     return OSMLocationResponse.fromJson(response.data);
   }
 
@@ -284,8 +285,11 @@ class DioService extends getx.GetxService {
     dioOsm.interceptors.add(
       PrettyDioLogger(),
     );
-    final response = await dioOsm.get('/search?q=$query&format=json&addressdetails=1&limit=5');
-    return (response.data as List).map((e) => OSMLocationResponse.fromJson(e)).toList();
+    final response = await dioOsm
+        .get('/search?q=$query&format=json&addressdetails=1&limit=5');
+    return (response.data as List)
+        .map((e) => OSMLocationResponse.fromJson(e))
+        .toList();
   }
 
   void setAuthToken(String token) {

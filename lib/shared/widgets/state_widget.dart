@@ -93,7 +93,7 @@ class StateWidget {
 
   static Widget loading() {
     return const Center(
-      child: AnimatedLoadingLogo(),
+      child: AnimatedLoadingIcon(),
     );
   }
 

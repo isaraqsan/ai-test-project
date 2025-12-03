@@ -91,7 +91,7 @@ class ImageService {
         return null;
       }
 
-      // Baca dan decode image asli
+      
       final originalBytes = await file.readAsBytes();
       final image = img.decodeImage(originalBytes);
       if (image == null) {
@@ -99,11 +99,11 @@ class ImageService {
         return null;
       }
 
-      // Bungkus alamat panjang ke beberapa baris
+      
       final wrappedLines = _wrapText(address, maxWidth: image.width - 40);
 
-      // Tambahkan setiap baris ke gambar
-      const int lineHeight = 16; // tinggi font kira-kira
+      
+      const int lineHeight = 16; 
       final int baseY = image.height - 20 - (wrappedLines.length * lineHeight);
 
       for (var i = 0; i < wrappedLines.length; i++) {
@@ -117,19 +117,19 @@ class ImageService {
         );
       }
 
-      // Simpan hasil ke temporary file
+      
       final tempDir = await getTemporaryDirectory();
       final tempFilePath = '${tempDir.path}/img_with_text_${DateTime.now().microsecondsSinceEpoch}.jpg';
       final tempFile = File(tempFilePath)..writeAsBytesSync(img.encodeJpg(image));
 
-      // Kompres hasilnya
+      
       final compressedPath = '${tempDir.path}/img_compressed_${DateTime.now().microsecondsSinceEpoch}.jpg';
       final compressedFile = await FlutterImageCompress.compressAndGetFile(
         tempFile.path,
         compressedPath,
       );
 
-      // Hapus file temp yang tidak terpakai
+      
       await tempFile.delete();
 
       if (compressedFile == null) {
@@ -144,9 +144,9 @@ class ImageService {
     }
   }
 
-  /// Fungsi untuk wrap teks agar tidak melewati batas gambar
+  
   static List<String> _wrapText(String text, {required int maxWidth}) {
-    const int charWidth = 8; // estimasi lebar per karakter (untuk font arial14)
+    const int charWidth = 8; 
     final maxChars = (maxWidth / charWidth).floor();
 
     final List<String> lines = [];

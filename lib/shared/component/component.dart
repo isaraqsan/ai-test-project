@@ -112,8 +112,8 @@ class Component {
       child: Divider(
         height: height,
         thickness: thickness,
-        // indent: 20,
-        // endIndent: 0,
+        
+        
         color: color,
       ),
     );

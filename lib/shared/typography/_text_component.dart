@@ -75,14 +75,14 @@ class TextComponent {
                 type: TextBodyType.s1,
               ),
               Dimens.marginVerticalSmall(),
-              // TextComponent.textBody(
-              //   Utils.moneyFormatter(
-              //     DataUsecase.timesNumber(price, qty),
-              //   ),
-              //   bold: true,
-              //   textAlign: TextAlign.end,
-              //   type: TextBodyType.s1,
-              // ),
+              
+              
+              
+              
+              
+              
+              
+              
             ],
           ),
         ),

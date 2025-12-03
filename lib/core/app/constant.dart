@@ -9,7 +9,6 @@ class Constant {
   static const String iconPath = 'assets/icons/';
   static const String imagePath = 'assets/images/';
 
-  //* ENV
   static const String env = '.env';
   static const String debug = 'DEBUG';
   static const String isProduction = 'IS_PRODUCTION';
@@ -29,7 +28,6 @@ class Constant {
   static const String pusherChannel = 'PUSHER_CHANNEL';
   static const String isCrypt = 'IS_CRYPT';
 
-  //* Status
   static const String statusDraft = 'draft';
   static const String statusPending = 'pending';
   static const String statusOnProcess = 'on-process';
@@ -47,7 +45,6 @@ class Constant {
   static const String statusActive = 'active';
   static const String statusDeActive = 'deactive';
 
-  //* Reason Type
   static const String statusAll = 'all';
   static const String statusImplemented = 'implemented';
   static const String statusNotImplemented = 'not-implemented';

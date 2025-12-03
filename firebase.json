@@ -1,1 +1,63 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"id-act-par","appId":"1:302133217676:android:5dfb762636aa9dd457aea9","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"id-act-par","appId":"1:302133217676:ios:f8d766a4ae851fd257aea9","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"id-act-par","configurations":{"android":"1:302133217676:android:5dfb762636aa9dd457aea9","ios":"1:302133217676:ios:f8d766a4ae851fd257aea9"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "ai-test-project-b4416",
+          "appId": "1:356431257956:android:06f713ede4fb048a7cda71",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "ai-test-project-b4416",
+          "appId": "1:356431257956:ios:f2a2c4118e8f2b337cda71",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "ai-test-project-b4416",
+          "configurations": {
+            "android": "1:356431257956:android:06f713ede4fb048a7cda71",
+            "ios": "1:356431257956:ios:f2a2c4118e8f2b337cda71"
+          }
+        }
+      }
+    }
+  },
+  "emulators": {
+    "dataconnect": {
+      "dataDir": "dataconnect/.dataconnect/pgliteData"
+    }
+  },
+  "dataconnect": {
+    "source": "dataconnect"
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "nam5",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "source": "functions",
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint"
+      ]
+    }
+  ],
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

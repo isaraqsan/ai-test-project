@@ -60,8 +60,8 @@ class _PhotoPickerState extends State<PhotoPicker> {
       } else {
         photoPickerState = PhotoPickerState.error;
         Log.v('File ${widget.path} Not Found', tag: runtimeType.toString());
-        // final CustomerImageRepository customerImageRepository = CustomerImageRepository();
-        // customerImageRepository.removeByPath(widget.path!);
+        
+        
       }
     } else {
       photoPickerState = PhotoPickerState.picker;
@@ -92,7 +92,7 @@ class _PhotoPickerState extends State<PhotoPicker> {
   }
 
   void onRemoveImage() {
-    // * Try delete file
+    
     try {
       Log.v('Delete Image ${file?.path}', tag: runtimeType.toString());
       if (file?.existsSync() ?? false) {

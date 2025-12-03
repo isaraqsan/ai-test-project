@@ -1,9 +1,9 @@
 class AlphaHive {
-  // * Auth
+  
   static const String auth = 'auth_box';
   static const int authCode = 0;
 
-  // * Global
+  
   static const String brand = 'brand_box';
   static const int brandCode = 1;
 

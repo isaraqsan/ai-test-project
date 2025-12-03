@@ -7,8 +7,6 @@ import 'package:gibas/core/app/constant/role.dart';
 import 'package:gibas/core/utils/log.dart';
 import 'package:gibas/core/service/database_service.dart';
 import 'package:gibas/core/utils/utils.dart';
-import 'package:gibas/features/auth/view/login_view.dart';
-import 'package:gibas/features/dashboard/presentation/view/dashboard_view.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -24,14 +22,14 @@ class AuthController extends GetxController {
 
   @override
   void onClose() {
-    // disconnectBluetooth();
+    
     super.onClose();
   }
 
   String setVersion(String value) => version = value;
 
   Future onRefresh() async {
-    // await onSetAuth();
+    
   }
 
   Future<bool> onSetAuth(Auth auth) async {
@@ -80,7 +78,6 @@ class AuthController extends GetxController {
   Future<void> onLogout() async {
     debouncer.run(() async {
       await clear();
-      Get.offAll(() => const LoginView());
     });
   }
 
@@ -89,7 +86,7 @@ class AuthController extends GetxController {
       case Role.implementor:
       case Role.headOffice:
       case Role.admin:
-        Get.offAll(() => const DashboardView());
+        
         break;
       default:
         Utils.toast('Anda tidak memiliki hak akses');

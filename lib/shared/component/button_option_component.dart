@@ -33,7 +33,7 @@ class ButtonOptionComponent extends StatelessWidget {
     return InkWell(
       onTap: onClick,
       child: Container(
-        // height: 40,
+        
         width: double.infinity,
         margin: const EdgeInsets.only(bottom: 10),
         alignment: alignment,

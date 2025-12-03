@@ -109,46 +109,46 @@ class BaseFormScaffold extends StatelessWidget {
   }
 
   Widget _contentWithBottomButtonWidget(BuildContext context) {
-    // if (showSubmitButton) {
-    //   return Stack(
-    //     children: [
-    //       Padding(
-    //         padding: EdgeInsets.only(top: 12, bottom: showSubmitButton ? 72 : 0),
-    //         child: SingleChildScrollView(
-    //           controller: _scrollController,
-    //           padding: usePaddingHorizontal ? Dimens.marginContentHorizontal.copyWith(top: Dimens.value4, left: 24, right: 24) : EdgeInsets.zero,
-    //           child: Form(
-    //             key: _formKey,
-    //             child: _getResponsiveContent(context),
-    //           ),
-    //         ),
-    //       ),
-    //       Align(
-    //         alignment: Alignment.bottomCenter,
-    //         child: Container(
-    //           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-    //           decoration: BoxDecoration(
-    //             color: Colors.white,
-    //             boxShadow: [
-    //               BoxShadow(
-    //                 color: Colors.black.withValues(alpha: 0.08),
-    //                 offset: const Offset(0, -1),
-    //               ),
-    //             ],
-    //           ),
-    //           child: SizedBox(
-    //             width: double.infinity,
-    //             child: bottomButton ??
-    //                 Buttons.primaryButton(
-    //                   title: submitText,
-    //                   onPressed: _handleSubmit,
-    //                 ),
-    //           ),
-    //         ),
-    //       ),
-    //     ],
-    //   );
-    // } else {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return SingleChildScrollView(
       controller: _scrollController,
       padding: usePaddingHorizontal ? Dimens.marginContentHorizontal.copyWith(top: Dimens.value16, left: 24, right: 24) : EdgeInsets.zero,
@@ -157,7 +157,7 @@ class BaseFormScaffold extends StatelessWidget {
         child: _getResponsiveContent(context),
       ),
     );
-    // }
+    
   }
 
   Widget _contentWithoutBottomButton(BuildContext context) {

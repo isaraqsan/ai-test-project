@@ -20,7 +20,7 @@ class TextUsecase {
 
   static String cleanString(String input) {
     return input
-        .trim() // Hilangkan spasi di awal & akhir
-        .replaceAll(RegExp(r'\s+'), ' '); // Ganti banyak spasi jadi satu spasi
+        .trim() 
+        .replaceAll(RegExp(r'\s+'), ' '); 
   }
 }

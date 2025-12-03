@@ -1,6 +1,5 @@
 import 'package:gibas/core/app/controller/auth_controller.dart';
-import 'package:gibas/features/auth/view/login_view.dart';
-import 'package:gibas/features/master/view/master_action_view.dart';
+import 'package:gibas/features/home/view/home_screen.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -27,9 +26,9 @@ class SplashscreenController extends GetxController {
   void checkSession() async {
     final bool auth = await authController.onCheckAuth();
     if (auth) {
-      Get.offAll(() => const MasterActionView());
+      Get.offAll(() => const HomeScreen());
     } else {
-      Get.offAll(() => const LoginView());
+      Get.offAll(() => const HomeScreen());
     }
   }
 }

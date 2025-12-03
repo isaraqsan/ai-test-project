@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:gibas/app_bindings.dart';
 import 'package:gibas/core/app/constant.dart';
 import 'package:gibas/core/utils/error_handling.dart';
@@ -17,7 +18,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 
 void main() async {
   await dotenv.load();
-  // await initializeSentry();
+  
   await initializeAndRunApp();
 }
 
@@ -39,8 +40,9 @@ Future<void> initializeAndRunApp() async {
 
 Future initServices() async {
   Log.v('Starting all services...', tag: 'Services');
+  await Firebase.initializeApp();
 
-  // * System
+  
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -52,8 +54,9 @@ Future initServices() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   WidgetsFlutterBinding.ensureInitialized();
   initializeDateFormatting(AppConfig.dateLocale);
-  // * Environment
-  await Get.putAsync<DatabaseService>(() => DatabaseService().init(), permanent: true);
+  
+  await Get.putAsync<DatabaseService>(() => DatabaseService().init(),
+      permanent: true);
   await Get.putAsync<DioService>(() => DioService().init(), permanent: true);
   Log.v('All services started', tag: 'Services');
 }

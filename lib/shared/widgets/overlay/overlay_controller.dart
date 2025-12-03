@@ -9,7 +9,7 @@ class OverlayController extends GetxController with GetSingleTickerProviderState
   void showLoading() {
     FocusManager.instance.primaryFocus?.unfocus();
     Get.dialog(
-      const AnimatedLoadingLogo(),
+      const AnimatedLoadingIcon(),
       barrierColor: ColorPalette.black.withValues(alpha: 0.6),
     );
   }

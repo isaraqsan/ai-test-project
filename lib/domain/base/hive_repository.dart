@@ -90,7 +90,7 @@ abstract class HiveRepository<T extends HiveObject> {
 
       for (final key in paginatedKeys) {
         final item = box.get(key) as T;
-        // Log.print('$item');
+        
         items.add(item);
       }
       return DataResult.fromHiveList(
